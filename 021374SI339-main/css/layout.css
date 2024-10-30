@@ -1,0 +1,115 @@
+/* Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus tenetur perspiciatis a molestiae, aut quos quam, aspernatur alias perferendis esse consequuntur eligendi et, at soluta sequi officia temporibus facilis consequatur.
+Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus tenetur perspiciatis a molestiae, aut quos quam, aspernatur alias perferendis esse consequuntur eligendi et, at soluta sequi officia temporibus facilis consequatur.
+Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus tenetur perspiciatis a molestiae, aut quos quam, aspernatur alias perferendis esse consequuntur eligendi et, at soluta sequi officia temporibus facilis consequatur.
+Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus tenetur perspiciatis a molestiae, aut quos quam, aspernatur alias perferendis esse consequuntur eligendi et, at soluta sequi officia temporibus facilis consequatur.
+Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus tenetur perspiciatis a molestiae, aut quos quam, aspernatur alias perferendis esse consequuntur eligendi et, at soluta sequi officia temporibus facilis consequatur. */
+
+/* Grid layout for small screens */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+.grid-container div {
+    background-color: #ccc;
+    padding: 20px;
+    text-align: center;
+}
+
+.animated-box {
+    width: 200px;
+    height: 100px;
+    background-color: red;
+    color: white;
+    font-size: 200%;
+    margin-left: 50px;
+    transition: transform s ease-in-out;
+}
+
+.animated-box:hover {
+    transform: scale(1.5);
+}
+
+/* Overwritten rule (main.css has background-color) */
+
+.grid-item img {
+    width: 100%;
+    height: auto;
+}
+
+
+/* Hide image 7 */
+.grid-item:nth-child(10n+7) {
+    display: none;
+}
+
+/* Position image 8 in the same place */
+.grid-item:nth-child(10n+8) {
+    grid-column: 1 / 2;
+    grid-row: 3;
+}
+
+input,textarea{
+    width: 80%;
+}
+
+/* Min-width media query for tablet and up */
+@media (min-width: 768px) {
+    nav ul {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-item:last-child{
+
+        grid-column: 1 / -1;
+        width: 50%;
+        justify-self: center;
+
+    }
+   
+}
+
+/* Min-width media query for desktop and up */
+@media (min-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(10, 1fr);
+    }
+
+    .grid-container div{
+        grid-column: auto / span 3;
+    }
+    .grid-container div:nth-child(odd){
+        grid-column: 3 / span 3;
+    }
+
+    section .grid-container .grid-item{
+        grid-column: auto / span 2;
+    }
+
+    section .grid-container .grid-item:nth-child(10n +1){
+        grid-column: 3 / span 2;
+    }
+
+    section .grid-container .grid-item:nth-child(10n + 4){
+        grid-column: 2 / span 2;
+    }
+    
+    section .grid-container .grid-item:nth-child(10n +8){
+        grid-column: 8 / span 2;
+        grid-row: auto
+    }
+
+    section .grid-container .grid-item:nth-child(10n +9){
+        grid-column: 4 / span 2;
+    }
+
+    header {
+        font-size: 1.2em;
+        padding: 1.5em;
+    }
+}
